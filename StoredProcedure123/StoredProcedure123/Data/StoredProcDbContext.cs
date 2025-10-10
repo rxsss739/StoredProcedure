@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using StoredProcedure123.Models;
 
 namespace StoredProcedure123.Data
 {
@@ -7,6 +8,6 @@ namespace StoredProcedure123.Data
         public StoredProcDbContext(DbContextOptions<StoredProcDbContext> options)
             : base(options) {}
 
-
+        public DbSet<Employee> Employees { get; set; }
     }
 }
