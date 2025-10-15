@@ -44,7 +44,7 @@ namespace StoredProcedure123.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Cars");
+                    b.ToTable("Cars", (string)null);
                 });
 
             modelBuilder.Entity("StoredProcedure123.Models.Employee", b =>
@@ -65,7 +65,7 @@ namespace StoredProcedure123.Migrations
 
                     b.HasKey("FirstName");
 
-                    b.ToTable("Employees");
+                    b.ToTable("Employees", (string)null);
                 });
 #pragma warning restore 612, 618
         }
