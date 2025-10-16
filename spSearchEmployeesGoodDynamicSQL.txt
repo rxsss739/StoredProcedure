@@ -20,3 +20,12 @@ as begin
 		N'@FN nvarchar(50), @LN nvarchar(50), @Gen nvarchar(50), @Sal int',
 		@FN=@FirstName, @LN=@LastName, @Gen=@Gender, @Sal=@Salary
 end
+go
+
+insert into Employees values
+('Raivo', 'Hein', 'Male', 83153),
+('Kaal', 'Ikas', 'Female', 5831),
+('Mihkel', 'Lollakas', 'Male', 5316),
+('Herman', 'Hernes', 'Male', 5134),
+('Kevin', 'Keevitaja', 'Female', 7561)
+go
