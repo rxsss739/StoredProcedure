@@ -1,0 +1,22 @@
+create proc spSearchEmployeesGoodDynamicSQL
+@FirstName nvarchar(100) = NULL,
+@LastName nvarchar(100) = NULL,
+@Gender nvarchar(50) = NULL,
+@Salary int = NULL
+as begin
+	declare @sql nvarchar(max)
+	set @sql = 'Select * from Employees where 1 = 1'
+
+	if (@FirstName is not null)
+		set @sql = @sql + ' and FirstName=@FN'
+	if (@LastName is not null)
+		set @sql = @sql + ' and LastName=@LN'
+	if (@Gender is not null)
+		set @sql = @sql + ' and @Gender=@Gen'
+	if (@Salary is not null)
+		set @sql = @sql + ' and @Salary=@Sal'
+		
+		execute sp_executesql @sql,
+		N'@FN nvarchar(50), @LN nvarchar(50), @Gen nvarchar(50), @Sal int',
+		@FN=@FirstName, @LN=@LastName, @Gen=@Gender, @Sal=@Salary
+end
