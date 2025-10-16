@@ -136,8 +136,8 @@ namespace StoredProcedure123.Controllers
             }
         }
 
-        [HttpPost]
-        public IActionResult SearchWithDynamicSQL(string firstName, string lastName, string gender, int salary)
+        [HttpPost, ActionName("SearchDynamicSQL")]
+        public  IActionResult SearchDynamicSQL(string firstName, string lastName, string gender, int salary)
         {
             string connectionString = _confiq.GetConnectionString("DefaultConnection");
 
